@@ -1,0 +1,507 @@
+
+/* =====================================
+   CALENDARIO ALEXANDER Y ANETTE
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --crema: #f7f0df;
+    --crema-oscuro: #eee3ca;
+    --rojo: #a73546;
+    --rojo-oscuro: #862b3a;
+    --verde: #dce8dc;
+    --verde-texto: #526b59;
+    --texto: #35483b;
+    --blanco: #fffdf7;
+}
+
+body {
+    background: var(--crema);
+    color: var(--texto);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* =====================================
+   PANTALLA INICIAL
+===================================== */
+
+.pantalla-inicio {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.contenido-inicio {
+    width: 100%;
+    max-width: 460px;
+    animation: aparecer 1s ease;
+}
+
+.etiqueta {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #8b7963;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* =====================================
+   SOBRE
+===================================== */
+
+.sobre {
+    width: 170px;
+    height: 125px;
+    margin: 0 auto 38px;
+    position: relative;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.sobre-cuerpo {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 95px;
+    background: #e8d6b2;
+    border-radius: 3px;
+    box-shadow: 0 12px 25px #8d765020;
+}
+
+.sobre-tapa {
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+    border-left: 85px solid transparent;
+    border-right: 85px solid transparent;
+    border-top: 65px solid #d5bd91;
+    z-index: 2;
+}
+
+.corazon {
+    position: absolute;
+    z-index: 3;
+    top: 37px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--rojo);
+    font-size: 27px;
+}
+
+.nombre-sobre {
+    position: absolute;
+    bottom: 20px;
+    left: 12px;
+    z-index: 4;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    color: #76654e;
+}
+
+/* =====================================
+   TITULOS Y TEXTOS
+===================================== */
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 6vw, 43px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--texto);
+}
+
+h1 span {
+    color: var(--rojo);
+    font-style: italic;
+}
+
+.descripcion-inicio {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #817b6d;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.dedicatoria {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-style: italic;
+    color: #8c7962;
+    margin-bottom: 27px;
+}
+
+/* =====================================
+   BOTONES
+===================================== */
+
+.boton-principal {
+    background: var(--rojo);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 15px 30px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px #a7354625;
+}
+
+.boton-principal:hover {
+    background: var(--rojo-oscuro);
+    transform: translateY(-3px);
+}
+
+/* =====================================
+   CALENDARIO PRINCIPAL
+===================================== */
+
+.contenedor-calendario {
+    max-width: 1050px;
+    margin: auto;
+    padding: 65px 25px 35px;
+    animation: aparecer 0.8s ease;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.encabezado .etiqueta {
+    margin-bottom: 22px;
+}
+
+.subtitulo {
+    color: #817b6d;
+    font-size: 13px;
+    margin-top: 17px;
+}
+
+.linea-decorativa {
+    color: var(--rojo);
+    margin-top: 23px;
+    font-size: 24px;
+}
+
+/* =====================================
+   CASILLAS DE LOS 30 DÍAS
+===================================== */
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 17px;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.dia {
+    min-height: 135px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    transition: transform 0.25s, box-shadow 0.25s;
+
+    font-family: 'Playfair Display', serif;
+
+    box-shadow: 0 4px 12px #64563a0d;
+}
+
+.dia:hover:not(:disabled) {
+    transform: translateY(-5px) rotate(-1deg);
+    box-shadow: 0 10px 20px #64563a20;
+}
+
+.dia:nth-child(3n + 1) {
+    background: #e9d9b8;
+    color: #59624c;
+}
+
+.dia:nth-child(3n + 2) {
+    background: var(--rojo);
+    color: white;
+}
+
+.dia:nth-child(3n) {
+    background: var(--verde);
+    color: var(--verde-texto);
+}
+
+.numero-dia {
+    font-size: 33px;
+    font-weight: 500;
+}
+
+.icono-dia {
+    font-size: 12px;
+    margin-top: 7px;
+    opacity: 0.8;
+}
+
+.dia:disabled {
+    cursor: not-allowed;
+    opacity: 0.62;
+    filter: saturate(0.7);
+}
+
+.dia:disabled:hover {
+    transform: none;
+}
+
+.dia.abierto::after {
+    content: "♥";
+    position: absolute;
+    right: 9px;
+    bottom: 8px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* =====================================
+   PIE DE CALENDARIO
+===================================== */
+
+.pie-calendario {
+    text-align: center;
+    margin-top: 45px;
+    color: #897b67;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 2;
+}
+
+/* =====================================
+   VENTANA DE MENSAJES
+===================================== */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: #29251ed9;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    animation: aparecer 0.3s ease;
+}
+
+.modal-contenido {
+    background: var(--crema);
+    width: 100%;
+    max-width: 430px;
+    padding: 50px 30px 35px;
+    text-align: center;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 15px 50px #0003;
+    animation: subir 0.4s ease;
+}
+
+.cerrar-modal {
+    position: absolute;
+    top: 12px;
+    right: 17px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #8b7963;
+    cursor: pointer;
+}
+
+.corazon-modal {
+    font-size: 35px;
+    color: var(--rojo);
+    margin: 15px 0;
+}
+
+.numero-sorpresa {
+    color: #99866d;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.modal-contenido h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    color: var(--rojo);
+    font-size: 29px;
+    margin-bottom: 18px;
+}
+
+.mensaje-sorpresa {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #5d6254;
+    white-space: pre-line;
+    margin-bottom: 25px;
+}
+
+.firma {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #99866d;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* =====================================
+   ANIMACIONES
+===================================== */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flotar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-9px);
+    }
+}
+
+/* =====================================
+   ADAPTACIÓN PARA CELULARES
+===================================== */
+
+@media (max-width: 600px) {
+
+    .contenedor-calendario {
+        padding: 45px 14px 25px;
+    }
+
+    .calendario-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .dia {
+        min-height: 105px;
+    }
+
+    .numero-dia {
+        font-size: 27px;
+    }
+
+    .encabezado {
+        margin-bottom: 30px;
+    }
+
+    .modal-contenido {
+        padding: 45px 20px 30px;
+    }
+}
+
+/* =====================================
+   CARTA ESPECIAL PARA ANETTE
+===================================== */
+
+.pantalla-carta {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px 20px;
+    animation: aparecer 1s ease;
+}
+
+.carta {
+    width: 100%;
+    max-width: 570px;
+    background: #fffaf0;
+    padding: 50px 45px;
+    border: 1px solid #e5d5b9;
+    box-shadow: 0 15px 40px #68563818;
+    text-align: center;
+    position: relative;
+}
+
+.carta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: var(--rojo);
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.carta p:not(.etiqueta) {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    line-height: 1.9;
+    color: #665c4c;
+    margin-bottom: 17px;
+}
+
+.carta .saludo {
+    text-align: left;
+    font-weight: 600;
+}
+
+.firma-carta {
+    margin-top: 30px;
+    font-style: italic;
+}
+
+.firma-carta span {
+    color: var(--rojo);
+    font-size: 25px;
+}
+
+@media (max-width: 600px) {
+    .carta {
+        padding: 35px 22px;
+    }
+
+    .carta h2 {
+        font-size: 25px;
+    }
+}

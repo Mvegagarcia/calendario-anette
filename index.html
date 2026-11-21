@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un regalo para Anette</title>
+
+    <!-- Conectar nuestro diseño -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- PANTALLA DE BIENVENIDA -->
+    <section id="inicio" class="pantalla-inicio">
+
+        <div class="contenido-inicio">
+
+            <p class="etiqueta">UN REGALO DE ALEXANDER</p>
+
+            <!-- SOBRE -->
+            <div class="sobre">
+                <div class="sobre-cuerpo">
+                    <div class="sobre-tapa"></div>
+                    <div class="corazon">♥</div>
+                </div>
+
+                <span class="nombre-sobre">Para: Anette</span>
+            </div>
+
+            <!-- TITULO -->
+            <h1>
+                Un poquito de cariño
+                <br>
+                <span>para ti</span>
+            </h1>
+
+            <p class="descripcion-inicio">
+                Preparé algo especial para hacerte sonreír
+                durante 30 días.
+            </p>
+
+            <p class="dedicatoria">
+                De Alexander, con mucho cariño.
+            </p>
+
+            <!-- BOTÓN -->
+            <button id="botonComenzar" class="boton-principal">
+                Abrir mi regalo ♥
+            </button>
+
+        </div>
+
+    </section>
+      
+    <!-- CARTA PARA ANETTE -->
+    <section id="pantallaCarta" class="pantalla-carta oculto">
+
+        <div class="carta">
+
+            <p class="etiqueta">UNA CARTA PARA ALGUIEN ESPECIAL</p>
+
+            <h2>Para mi querida Anette ♥</h2>
+
+            <p class="saludo">Anette:</p>
+
+            <p>
+                Quiero regalarte algo diferente, algo que puedas
+                abrir cada día y que te recuerde lo especial que eres.
+            </p>
+
+            <p>
+                Preparé este pequeño calendario con 30 sorpresas,
+                porque a veces no hacen falta grandes regalos
+                para demostrar cariño.
+            </p>
+
+            <p>
+                Cada día encontrarás una palabra, un mensaje
+                o una sorpresa que preparé pensando en ti.
+            </p>
+
+            <p>
+                Espero que al abrir cada ventanita encuentres
+                una razón para sonreír y que este pequeño regalo
+                se convierta en un recuerdo especial.
+            </p>
+
+            <p>
+                Gracias por formar parte de esta historia
+                y por todos los momentos bonitos que podemos
+                seguir construyendo.
+            </p>
+
+            <p class="firma-carta">
+                Con mucho cariño,
+                <br>
+                <span>Alexander ♥</span>
+            </p>
+
+            <button id="botonVerCalendario" class="boton-principal">
+                Ver mis 30 sorpresas ♥
+            </button>
+
+        </div>
+
+    </section>
+    <!-- CALENDARIO -->
+    <main id="calendario" class="contenedor-calendario oculto">
+
+        <header class="encabezado">
+
+            <p class="etiqueta">DE ALEXANDER · PARA ANETTE</p>
+
+            <h1>
+                Un calendario
+                <br>
+                <span>lleno de cariño</span>
+            </h1>
+
+            <p class="subtitulo">
+                30 días, 30 pequeñas razones para sonreír.
+            </p>
+
+            <div class="linea-decorativa">♡</div>
+
+        </header>
+
+        <!-- AQUÍ APARECERÁN LOS 30 DÍAS -->
+        <section
+            class="calendario-grid"
+            id="calendarioGrid">
+
+        </section>
+
+        <!-- PIE -->
+        <footer class="pie-calendario">
+
+            <p>Hecho con cariño para Anette ♥</p>
+
+            <span>Alexander · 2026</span>
+
+        </footer>
+
+    </main>
+
+    <!-- VENTANA DE SORPRESAS -->
+    <div id="ventanaSorpresa" class="modal oculto">
+
+        <div class="modal-contenido">
+
+            <button
+                id="cerrarModal"
+                class="cerrar-modal">
+                ×
+            </button>
+
+            <p class="etiqueta">UNA SORPRESA PARA TI</p>
+
+            <div class="corazon-modal">♥</div>
+
+            <p
+                id="numeroSorpresa"
+                class="numero-sorpresa">
+            </p>
+
+            <h2 id="tituloSorpresa"></h2>
+
+            <p
+                id="mensajeSorpresa"
+                class="mensaje-sorpresa">
+            </p>
+
+            <p class="firma">
+                Con cariño, Alexander ♥
+            </p>
+
+            <button
+                id="botonCerrar"
+                class="boton-principal">
+                Cerrar sorpresa
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CONECTAR JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
